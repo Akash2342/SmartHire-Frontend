@@ -11,8 +11,11 @@ import { RegisterPage } from '@/pages/auth/RegisterPage'
 import { JobsPage }       from '@/pages/jobs/JobsPage'
 import { JobDetailPage }  from '@/pages/jobs/JobDetailPage'
 
-// Dashboards
-import { SeekerDashboard }    from '@/pages/seeker/SeekerDashboard'
+// Seeker pages
+import { SeekerDashboard } from '@/pages/seeker/SeekerDashboard'
+import { ResumePage }      from '@/pages/seeker/ResumePage'
+
+// Other dashboards
 import { RecruiterDashboard } from '@/pages/recruiter/RecruiterDashboard'
 import { AdminDashboard }     from '@/pages/admin/AdminDashboard'
 
@@ -38,6 +41,7 @@ function App() {
             {/* Seeker-only routes */}
             <Route element={<ProtectedRoute allowedRoles={['SEEKER']} />}>
               <Route path="/seeker/dashboard" element={<SeekerDashboard />} />
+              <Route path="/seeker/resume"    element={<ResumePage />} />
             </Route>
 
             {/* Recruiter-only routes */}
