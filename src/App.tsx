@@ -12,9 +12,10 @@ import { JobsPage }      from '@/pages/jobs/JobsPage'
 import { JobDetailPage } from '@/pages/jobs/JobDetailPage'
 
 // Seeker pages
-import { SeekerDashboard } from '@/pages/seeker/SeekerDashboard'
-import { ResumePage }      from '@/pages/seeker/ResumePage'
-import { ProfilePage }     from '@/pages/seeker/ProfilePage'
+import { SeekerDashboard }   from '@/pages/seeker/SeekerDashboard'
+import { ResumePage }        from '@/pages/seeker/ResumePage'
+import { ProfilePage }       from '@/pages/seeker/ProfilePage'
+import { ApplicationsPage }  from '@/pages/seeker/ApplicationsPage'
 
 // Other dashboards
 import { RecruiterDashboard } from '@/pages/recruiter/RecruiterDashboard'
@@ -42,9 +43,10 @@ function App() {
 
             {/* Seeker-only routes */}
             <Route element={<ProtectedRoute allowedRoles={['SEEKER']} />}>
-              <Route path="/seeker/dashboard" element={<SeekerDashboard />} />
-              <Route path="/seeker/resume"    element={<ResumePage />} />
-              <Route path="/seeker/profile"   element={<ProfilePage />} />
+              <Route path="/seeker/dashboard"    element={<SeekerDashboard />} />
+              <Route path="/seeker/resume"       element={<ResumePage />} />
+              <Route path="/seeker/profile"      element={<ProfilePage />} />
+              <Route path="/seeker/applications" element={<ApplicationsPage />} />
             </Route>
 
             {/* Recruiter-only routes */}
