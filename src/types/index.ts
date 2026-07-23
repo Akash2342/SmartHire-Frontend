@@ -119,7 +119,7 @@ export interface Education {
 export interface CandidateSkill {
   id: string
   skillName: string
-  proficiencyLevel: ProficiencyLevel
+  proficiency: ProficiencyLevel   // backend field is `proficiency`, not `proficiencyLevel`
   yearsOfExperience: number | null
 }
 
@@ -132,7 +132,7 @@ export interface CandidateProfile {
   city: string | null
   headline: string | null
   summary: string | null
-  linkedInUrl: string | null
+  linkedinUrl: string | null    // backend field is `linkedinUrl` (lowercase i)
   githubUrl: string | null
   portfolioUrl: string | null
   noticePeriod: NoticePeriod | null

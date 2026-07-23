@@ -87,7 +87,7 @@ export const deleteEducation = async (id: string): Promise<void> => {
  */
 export const addSkill = async (data: {
   skillName: string
-  proficiencyLevel: ProficiencyLevel
+  proficiency: ProficiencyLevel   // backend field name is `proficiency`
   yearsOfExperience?: number
 }): Promise<CandidateSkill> => {
   const res = await api.post<ApiResponse<CandidateSkill>>('/candidate/profile/skills', data)
