@@ -218,27 +218,41 @@ export interface JobSearchParams {
 
 // ─── Application ─────────────────────────────────────────────────────────────
 
-/** Candidate-facing application view — excludes internal recruiter fields */
+/** Candidate-facing application view — matches ApplicationDto from the backend */
 export interface JobApplication {
   id: string
   jobId: string
   jobTitle: string
   companyName: string
-  candidateProfileId: string
-  resumeId: string
+  location: string | null
   coverLetter: string | null
   status: ApplicationStatus
   appliedAt: string
+  lastStatusChangedAt: string | null
 }
 
-/** Recruiter-facing application view — includes candidate info and recruiter note */
-export interface ApplicationDetail extends JobApplication {
-  recruiterNote: string | null
+/**
+ * Recruiter-facing application view — matches ApplicationDetailDto.
+ * Completely different shape from JobApplication (different backend DTO class).
+ * Includes candidate contact info and resume filename; excludes companyName.
+ */
+export interface ApplicationDetail {
+  id: string
+  jobId: string
+  jobTitle: string
+  candidateProfileId: string
   candidateFirstName: string | null
   candidateLastName: string | null
   candidateHeadline: string | null
   candidateCity: string | null
-  candidateProfileScore: number
+  candidatePhone: string | null
+  coverLetter: string | null
+  resumeId: string | null
+  resumeFileName: string | null
+  status: ApplicationStatus
+  recruiterNote: string | null
+  appliedAt: string
+  lastStatusChangedAt: string | null
 }
 
 // ─── Admin ────────────────────────────────────────────────────────────────────

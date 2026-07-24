@@ -18,9 +18,10 @@ import { ProfilePage }       from '@/pages/seeker/ProfilePage'
 import { ApplicationsPage }  from '@/pages/seeker/ApplicationsPage'
 
 // Recruiter pages
-import { RecruiterDashboard } from '@/pages/recruiter/RecruiterDashboard'
-import { CompanyPage }        from '@/pages/recruiter/CompanyPage'
-import { RecruiterJobsPage }  from '@/pages/recruiter/RecruiterJobsPage'
+import { RecruiterDashboard }        from '@/pages/recruiter/RecruiterDashboard'
+import { CompanyPage }               from '@/pages/recruiter/CompanyPage'
+import { RecruiterJobsPage }         from '@/pages/recruiter/RecruiterJobsPage'
+import { RecruiterApplicationsPage } from '@/pages/recruiter/RecruiterApplicationsPage'
 import { AdminDashboard }     from '@/pages/admin/AdminDashboard'
 
 // Single QueryClient instance shared across the whole app.
@@ -53,9 +54,10 @@ function App() {
 
             {/* Recruiter-only routes */}
             <Route element={<ProtectedRoute allowedRoles={['RECRUITER']} />}>
-              <Route path="/recruiter/dashboard" element={<RecruiterDashboard />} />
-              <Route path="/recruiter/company"   element={<CompanyPage />} />
-              <Route path="/recruiter/jobs"      element={<RecruiterJobsPage />} />
+              <Route path="/recruiter/dashboard"                    element={<RecruiterDashboard />} />
+              <Route path="/recruiter/company"                      element={<CompanyPage />} />
+              <Route path="/recruiter/jobs"                         element={<RecruiterJobsPage />} />
+              <Route path="/recruiter/jobs/:jobId/applications"     element={<RecruiterApplicationsPage />} />
             </Route>
 
             {/* Admin-only routes */}

@@ -50,7 +50,7 @@ export function RecruiterDashboard() {
               </div>
               <div>
                 <p className="font-semibold text-gray-900">Applications</p>
-                <p className="text-sm text-gray-500">Review candidates</p>
+                <p className="text-sm text-gray-500">Select a job to review</p>
               </div>
             </CardBody>
           </Card>
