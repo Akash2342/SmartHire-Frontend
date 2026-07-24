@@ -162,7 +162,7 @@ export interface Resume {
 
 export interface CompanyProfile {
   id: string
-  userId: string
+  recruiterEmail: string   // backend sends email, not userId
   companyName: string
   displayName: string | null
   industry: string | null
@@ -171,6 +171,7 @@ export interface CompanyProfile {
   websiteUrl: string | null
   description: string | null
   headquartersCity: string | null
+  hasLogo: boolean          // backend computes this from logo BYTEA column
   verificationStatus: VerificationStatus
   rejectionReason: string | null
 }
@@ -181,6 +182,7 @@ export interface JobPosting {
   id: string
   companyId: string
   companyName: string
+  companyHasLogo: boolean
   title: string
   description: string
   requirements: string | null
@@ -189,13 +191,16 @@ export interface JobPosting {
   employmentType: EmploymentType
   workMode: WorkMode
   experienceLevel: ExperienceLevel
+  minYearsExperience: number | null
   salaryMin: number | null
   salaryMax: number | null
   salaryCurrency: string | null
+  isSalaryVisible: boolean
+  numberOfOpenings: number | null
+  applicationDeadline: string | null  // ISO date "YYYY-MM-DD"
   status: JobStatus
   viewCount: number
   postedAt: string | null
-  closedAt: string | null
   createdAt: string
 }
 

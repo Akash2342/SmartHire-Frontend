@@ -17,8 +17,10 @@ import { ResumePage }        from '@/pages/seeker/ResumePage'
 import { ProfilePage }       from '@/pages/seeker/ProfilePage'
 import { ApplicationsPage }  from '@/pages/seeker/ApplicationsPage'
 
-// Other dashboards
+// Recruiter pages
 import { RecruiterDashboard } from '@/pages/recruiter/RecruiterDashboard'
+import { CompanyPage }        from '@/pages/recruiter/CompanyPage'
+import { RecruiterJobsPage }  from '@/pages/recruiter/RecruiterJobsPage'
 import { AdminDashboard }     from '@/pages/admin/AdminDashboard'
 
 // Single QueryClient instance shared across the whole app.
@@ -52,6 +54,8 @@ function App() {
             {/* Recruiter-only routes */}
             <Route element={<ProtectedRoute allowedRoles={['RECRUITER']} />}>
               <Route path="/recruiter/dashboard" element={<RecruiterDashboard />} />
+              <Route path="/recruiter/company"   element={<CompanyPage />} />
+              <Route path="/recruiter/jobs"      element={<RecruiterJobsPage />} />
             </Route>
 
             {/* Admin-only routes */}
