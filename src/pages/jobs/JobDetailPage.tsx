@@ -346,9 +346,6 @@ export function JobDetailPage() {
               <MetaItem icon={Building2} label={job.companyName} />
             </CardBody>
           </Card>
-
-          {/* Repeat apply section in sidebar for quick access */}
-          {applySection && <div>{applySection}</div>}
         </div>
 
       </div>
