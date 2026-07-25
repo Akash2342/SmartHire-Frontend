@@ -22,7 +22,10 @@ import { RecruiterDashboard }        from '@/pages/recruiter/RecruiterDashboard'
 import { CompanyPage }               from '@/pages/recruiter/CompanyPage'
 import { RecruiterJobsPage }         from '@/pages/recruiter/RecruiterJobsPage'
 import { RecruiterApplicationsPage } from '@/pages/recruiter/RecruiterApplicationsPage'
-import { AdminDashboard }     from '@/pages/admin/AdminDashboard'
+// Admin pages
+import { AdminDashboard }    from '@/pages/admin/AdminDashboard'
+import { AdminCompaniesPage } from '@/pages/admin/AdminCompaniesPage'
+import { AdminUsersPage }    from '@/pages/admin/AdminUsersPage'
 
 // Single QueryClient instance shared across the whole app.
 // Caches API responses and deduplicates in-flight requests.
@@ -63,6 +66,8 @@ function App() {
             {/* Admin-only routes */}
             <Route element={<ProtectedRoute allowedRoles={['ADMIN']} />}>
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/admin/companies" element={<AdminCompaniesPage />} />
+              <Route path="/admin/users"     element={<AdminUsersPage />} />
             </Route>
 
             {/* Catch-all — redirect unknown paths back to home */}

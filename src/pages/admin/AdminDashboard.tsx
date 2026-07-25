@@ -16,9 +16,9 @@ export function AdminDashboard() {
     ? [
         { label: 'Candidates',           value: stats.totalCandidates,      icon: Users,     color: 'blue',   link: '/admin/users?role=SEEKER'    },
         { label: 'Recruiters',           value: stats.totalRecruiters,      icon: Users,     color: 'green',  link: '/admin/users?role=RECRUITER'  },
-        { label: 'Active Jobs',          value: stats.activeJobs,           icon: Briefcase, color: 'purple', link: '/jobs'                        },
-        { label: 'Total Applications',   value: stats.totalApplications,    icon: FileText,  color: 'yellow', link: '#'                            },
-        { label: 'Pending Verifications',value: stats.pendingVerifications, icon: Clock,     color: 'red',    link: '/admin/companies'              },
+        { label: 'Active Jobs',          value: stats.totalActiveJobs,              icon: Briefcase, color: 'purple', link: '/jobs'           },
+        { label: 'Total Applications',   value: stats.totalApplications,            icon: FileText,  color: 'yellow', link: '#'               },
+        { label: 'Pending Verifications',value: stats.pendingCompanyVerifications,  icon: Clock,     color: 'red',    link: '/admin/companies' },
       ]
     : []
 

@@ -4,12 +4,10 @@ import type {
   PagedResponse,
   AdminDashboard,
   AdminUser,
-  CompanyProfile,
+  AdminCompany,
   Role,
   VerificationStatus,
 } from '@/types'
-
-/** Admin — platform-level stats: total candidates, recruiters, active jobs, applications, pending verifications */
 export const getDashboard = async (): Promise<AdminDashboard> => {
   const res = await api.get<ApiResponse<AdminDashboard>>('/admin/dashboard')
   return res.data.data
@@ -36,15 +34,13 @@ export const setUserActive = async (
   await api.patch(`/admin/users/${userId}/status`, null, { params: { active } })
 }
 
-/** Admin — list companies, optionally filtered by verification status */
+/** Admin — list companies, optionally filtered by verification status.
+ *  Returns a plain array (not paginated) — the backend returns List<CompanySummaryDto>.
+ */
 export const getCompanies = async (params: {
   status?: VerificationStatus
-  page?: number
-  size?: number
-}): Promise<PagedResponse<CompanyProfile>> => {
-  const res = await api.get<ApiResponse<PagedResponse<CompanyProfile>>>('/admin/companies', {
-    params,
-  })
+}): Promise<AdminCompany[]> => {
+  const res = await api.get<ApiResponse<AdminCompany[]>>('/admin/companies', { params })
   return res.data.data
 }
 
@@ -57,8 +53,8 @@ export const verifyCompany = async (
   companyId: string,
   action: 'APPROVE' | 'REJECT',
   rejectionReason?: string
-): Promise<CompanyProfile> => {
-  const res = await api.patch<ApiResponse<CompanyProfile>>(
+): Promise<AdminCompany> => {
+  const res = await api.patch<ApiResponse<AdminCompany>>(
     `/admin/companies/${companyId}/verify`,
     { action, rejectionReason }
   )

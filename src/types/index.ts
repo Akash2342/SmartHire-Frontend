@@ -257,19 +257,36 @@ export interface ApplicationDetail {
 
 // ─── Admin ────────────────────────────────────────────────────────────────────
 
+/** Matches DashboardDto from the backend */
 export interface AdminDashboard {
   totalCandidates: number
   totalRecruiters: number
-  activeJobs: number
+  totalActiveJobs: number           // backend field name (not activeJobs)
   totalApplications: number
-  pendingVerifications: number
+  pendingCompanyVerifications: number  // backend field name (not pendingVerifications)
 }
 
+/** Matches UserSummaryDto from the backend */
 export interface AdminUser {
   id: string
   email: string
   role: Role
-  isActive: boolean
-  isEmailVerified: boolean
+  active: boolean           // Lombok getter is isActive() → JSON key is "active"
+  emailVerified: boolean    // Lombok getter is isEmailVerified() → JSON key is "emailVerified"
+  createdAt: string
+}
+
+/** Matches CompanySummaryDto from the backend — used in admin company list */
+export interface AdminCompany {
+  id: string
+  ownerUserId: string
+  ownerEmail: string
+  companyName: string
+  displayName: string | null
+  industry: string | null
+  website: string | null     // backend field is `website`, not `websiteUrl`
+  companySize: string | null
+  verificationStatus: VerificationStatus
+  rejectionReason: string | null
   createdAt: string
 }
