@@ -413,7 +413,7 @@ export function RecruiterJobsPage() {
   const isVerified = company?.verificationStatus === 'VERIFIED'
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Job Postings</h1>
         {/* Only show New Job button when no form is already open */}

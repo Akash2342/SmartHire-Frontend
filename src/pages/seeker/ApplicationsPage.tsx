@@ -147,7 +147,7 @@ export function ApplicationsPage() {
   // ── Empty state ───────────────────────────────────────────────────────────
   if (!applications || applications.length === 0) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="mb-6 text-2xl font-bold text-gray-900">My Applications</h1>
         <div className="py-16 text-center text-gray-500">
           <Briefcase className="mx-auto mb-3 h-10 w-10 text-gray-300" />
@@ -165,7 +165,7 @@ export function ApplicationsPage() {
 
   // ── List ──────────────────────────────────────────────────────────────────
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">My Applications</h1>
         <span className="text-sm text-gray-500">
