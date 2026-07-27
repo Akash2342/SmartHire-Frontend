@@ -46,25 +46,43 @@ A full-stack job hiring platform. Candidates can browse jobs and apply, recruite
 ### Prerequisites
 
 - Node.js 18+
-- The [naukri backend](https://github.com/Akash2342/naukri) running on `http://localhost:8087`
+- Docker (for PostgreSQL)
+- Java 21 + Maven (for the backend)
 
-### Steps
+### 1. Start PostgreSQL via Docker
 
 ```bash
-# 1. Clone the repo
+docker run -d \
+  --name smarthire-db \
+  -e POSTGRES_DB=naukri \
+  -e POSTGRES_USER=naukri_user \
+  -e POSTGRES_PASSWORD=naukri_pass \
+  -p 5432:5432 \
+  postgres:16
+```
+
+### 2. Start the backend
+
+```bash
+git clone https://github.com/Akash2342/naukri.git
+cd naukri
+mvn spring-boot:run
+```
+
+Backend starts at `http://localhost:8087`. Hibernate creates all tables automatically on first run.
+
+### 3. Start the frontend
+
+```bash
 git clone https://github.com/Akash2342/SmartHire-Frontend.git
 cd SmartHire-Frontend
-
-# 2. Install dependencies
 npm install
-
-# 3. Start the dev server
 npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-The Vite dev server proxies all `/api/*` requests to `http://localhost:8087` automatically — no extra configuration needed.
+The Vite dev server proxies all `/api/*` requests to `http://localhost:8087` automatically — no CORS configuration needed.
 
 ### Other commands
 
